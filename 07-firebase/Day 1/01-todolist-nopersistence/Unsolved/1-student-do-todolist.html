@@ -76,14 +76,19 @@
 
       // Append the button to the to do item
 
+      toDoItem = toDoItem.prepend(toDoClose);
 
       // Add the button and toDoItem to the to-dos div
 
+      $("#to-dos").append(toDoItem);
 
       // Clear the textbox when done
 
+      $("#to-do").val("");
 
       // Add to the toDoCount
+
+      toDoCount++;
 
     });
 
@@ -93,7 +98,8 @@
     $(document.body).on("click", ".checkbox", function() {
 
       // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
-
+      var toDoNumber = $(this).attr("data-to-do");
+      $("#item-" + toDoNumber).remove();
 
       // Select and Empty the specific <p> element that previously held the to do item number.
 
