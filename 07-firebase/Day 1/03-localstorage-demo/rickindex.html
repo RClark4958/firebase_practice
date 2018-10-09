@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+</head>
+
+<style>
+
+  #character-name, #greeting {
+    font-size: 16px;
+
+  }
+
+</style>
+
+<body>
+
+  <h1>Character Names</h1>
+
+  <form>
+
+    <span id="input-name">
+      Character Name: <input id="character-name" type="text">
+      <input id="save-name" value="Save" type="submit">
+    </span>
+
+  </form>
+
+  <span id="greeting"></span>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+  
+  $("#save-name").on("click", function(event) { 
+    event.preventDefault();
+
+    $("#greeting").html("");
+
+    var characterName = $("#character-name").val().trim();
+
+    localStorage.clear();
+    localStorage.setItem("name", characterName);
+    $("#greeting").text(localStorage.getItem("name"));
+
+  });
+
+  $("#greeting").text(localStorage.getItem("name"));
+
+
+
+  </script>
+
+</body>
+</html>

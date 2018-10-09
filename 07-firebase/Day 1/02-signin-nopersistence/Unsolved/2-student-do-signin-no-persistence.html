@@ -23,19 +23,45 @@
     </div>
 
     <div class="row">
-      <div class="col-lg 6">
+      <div class="col-lg-6">
         <div class="card card-default">
-          <div class="card header">Enter character stats</div>
-          <div class="card body">
+          <div class="card-header">
+            Enter character stats
+          </div>
+          <div class="card-body">
 
             <form role="form">
               <div class="form-group row">
                 <label for="dexterity-input">Dexterity:</label>
-                <input class="form-control"
+                <input class="form-control" id="dexterity-input" type="number">
               </div>
+              <div class="form-group row">
+                <label for="strength-input">Strength:</label>
+                <input class="form-control" id="strength-input" type="number">
+              </div>
+              <div class="form-group row">
+                <label for="constitution-input">Constitution:</label>
+                <input class="form-control" id="constitution-input" type="number">
+              </div>
+              <button class="btn btn-default" id="create-character" type="submit">Create Character</button>
             </form>
           </div>
         </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="card card-default">
+          <div class="card-header">
+            New Character Stats 
+          </div>
+          <div class="card-body" id="recent character">
+            <h2 id="dexterity-display">Dexterity: 104</h2>
+            <h2 id="strength-display">Strength: 24</h2>
+            <h2 id="constitution-display">Constitution:45</h2>
+          </div>
+          </div>
+      </div>
+      
       </div>
     </div>
 
@@ -49,16 +75,30 @@
     // ========================================= START CODING BELOW!!
 
     // Capture Button Click
-    $("#add-user").on("click", function(event) {
+    $("#create-character").on("click", function(event) {
       event.preventDefault();
 
       // Capture User Inputs and store them into variables
 
+      var dexterity = $("#dexterity-input").val().trim();
+      var strength = $("#strength-input").val().trim();
+      var constitution = $("#constitution-input").val().trim();
+
+      console.log(dexterity);
+      console.log(strength);
+      console.log(constitution)
+
 
       // Console log each of the user inputs to confirm we are receiving them correctly
 
+      
 
       // Output all of the new information into the relevant HTML sections
+
+      $("#dexterity-display").text("Dexterity: " + dexterity);
+      $("#strength-display").text("Strength: " + strength);
+      $("#constitution-display").text("Constitution: " + constitution);
+
     });
 
   </script>
